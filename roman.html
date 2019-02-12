@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html>
 <body>
-  <button onclick="convertTo()">Try it</button>
-<p> </p>
-<<script type="text/javascript">
-function convertTo(){
-var num = prompt("please enter your number", "0");
+  <p>Click the button to convert a number.</p>
+
+  <button onclick="myFunction()">Try it</button>
+  <p id="demo"></p>
+  <script>
+  function myFunction() {
+    var num = prompt("please enter your number", "0");
+    if(isNaN(num)){
+      convertFrom(num);
+    } else {
+      convertTo(num);
+    }
+  }
+
+function convertTo(num){
 var result = '';
 var decimal = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
 var roman = ["M", "CM","D","CD","C", "XC", "L", "XL", "X","IX","V","IV","I"];
@@ -15,7 +25,7 @@ var roman = ["M", "CM","D","CD","C", "XC", "L", "XL", "X","IX","V","IV","I"];
         num -= decimal[i];
       }
     }
-  document.getElementById("demo").innerHTML = result;
+  return result;
   }
 
 function convertFrom(str){
